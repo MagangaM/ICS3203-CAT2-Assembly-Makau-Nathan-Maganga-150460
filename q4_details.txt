@@ -1,0 +1,21 @@
+The software uses conditional jumps and comparisons in assembly to decide what to do based on the sensor data. 
+To mimic the motor and alarm statuses, these decisions directly update two memory regions (motor_status and alarm_status). 
+
+The fundamental reasoning relies on thresholds for the value of the sensor: 
+
+1. High water level (Sensor Value > 200): An very high water level is detected by the software.
+Alarm_status is set to 1 in memory, which sets off the alarm.
+Setting motor_status to 0 stops the motor. 
+
+2. Moderate water level (100 < Sensor Value <= 200): A moderate water level is identified by the software. 
+Setting motor_status to 0 turns off the motor.
+Making sure alarm_status is 0 keeps the alarm off. 
+
+3. Safe water level is detected by the software when the sensor value is less than 100.
+Setting motor_status to 1 activates the motor.
+Making sure alarm_status is 0 keeps the alarm off. 
+
+Manipulation of Memory Location 
+The motor and alarm statuses are simulated using memory locations (motor_status and alarm_status).
+To indicate OFF or ON, each location holds a single byte (0 or 1). 
+

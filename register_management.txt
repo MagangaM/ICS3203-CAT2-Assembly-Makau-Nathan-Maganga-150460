@@ -1,0 +1,3 @@
+Prior to invoking the function, the main program places the argument(n) into the stack. 
+Because these registers are altered, the function keeps ebx, ecx, and edx on the stack. 
+The stack frame is controlled using ebp to access arguments and local varibales. 
